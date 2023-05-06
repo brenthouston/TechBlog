@@ -1,0 +1,17 @@
+[
+    {
+      "name": "What's an EDR?",
+      "description": "EDR stands for Entity-Relationship Diagram. An EDR is a graphical representation of the data model for a database."
+    },
+    {
+      "name": "ORM is what now?",
+      "email": "ORMs (Object-Relational Mappers) can simplify database management by providing a higher level of abstraction and reducing the amount of repetitive boilerplate code, ultimately resulting in increased productivity."
+    },
+    {
+      "name": 
+      "Handlebars.js: Simplify Your Web Development Workflow",
+      "email": "Handlebars.js is a popular templating engine that allows developers to create dynamic HTML pages with ease, using a simple syntax and straightforward logic that can be easily integrated into existing web development workflows."
+     
+    }
+  ]
+  
