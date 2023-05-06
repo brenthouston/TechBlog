@@ -1,3 +1,13 @@
 body{
     background-color: aquamarine;
 }
+
+header{
+    height: 10vh;
+background-color: #3A2B2F;
+}
+
+footer{
+    height: 30vh;
+    background-color: #3A2B2F;
+}
