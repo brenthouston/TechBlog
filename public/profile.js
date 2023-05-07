@@ -1,3 +1,4 @@
+
 document.querySelector("form").addEventListener("submit",e=>{
     e.preventDefault();
     const projObj = {
@@ -5,9 +6,9 @@ document.querySelector("form").addEventListener("submit",e=>{
         needed_funding:document.querySelector("#funding").value,
         description:document.querySelector("#description").value,
     }
-    fetch("/api/projects",{
+    fetch("/api/post",{
         method:"POST",
-        body:JSON.stringify(projObj),
+        body:JSON.stringify(postObj),
         headers:{
             "Content-Type":"application/json"
         }
@@ -24,7 +25,7 @@ const allDelBtns = document.querySelectorAll(".del-btn");
 allDelBtns.forEach(button=>{
     button.addEventListener("click",()=>{
         const idToDel = button.getAttribute("data-proj-id");
-        fetch(`/api/projects/${idToDel}`,{
+        fetch(`/api/post/${idToDel}`,{
             method:"DELETE",
         }).then(res=>{
             if(res.ok){

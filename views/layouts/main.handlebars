@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>techBlog</title>
+    <title>The techBlog</title>
     <link rel="stylesheet" href="/CSS/style.css">
  
 </head>
 <body>
-    <header>      
-        <a href="/">Home</a>
+    <header>    
+    <a href="/">Home</a>
         {{#if logged_in}}
-            <a href="/profile">Profile</a>
+            <a id="dashlink" href="/profile">Dashboard</a>
             <button id="logout">Logout</button>
             <script src="/logout.js"></script>
         {{else}}
+
             <a href="login">Login</a>
         {{/if}} 
-        <div class="box">
-            <h1>The techBlog</h1>
-        </div>
-        
-        </header>
+     </header>
+
        
     <main>{{{body}}}</main>
     

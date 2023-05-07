@@ -10,7 +10,7 @@ router.get("/",(req,res)=>{
         console.log(hbsData);
         res.render("home",{
             allPosts:hbsData,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
         })
     })
 })
@@ -31,7 +31,8 @@ router.get("/login",(req,res)=>{
         return res.redirect("/profile")
     }
     res.render("login",{
-        logged_in:req.session.logged_in
+        logged_in:req.session.logged_in,
+
     })
 })
 

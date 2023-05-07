@@ -1,0 +1,15 @@
+    
+
+    <a href="/">Home</a>
+        {{#if logged_in}}
+            <a id="dashlink" href="/profile">Dashboard</a>
+            <button id="logout">Logout</button>
+            <script src="/logout.js"></script>
+        {{else}}
+
+            <a href="login">Login</a>
+        {{/if}} 
+        <div class="box">
+            <h1>The techBlog</h1>
+        </div>
+    
