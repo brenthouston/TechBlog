@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { ForeignKeyConstraintError } = require('sequelize');
 const apiRoutes = require('./api');
 const frontEndRoutes = require("./frontEndRoutes.js")
 

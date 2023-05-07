@@ -5,8 +5,8 @@ const {Post,User} = require('../models');
 router.get("/",(req,res)=>{
     Post.findAll({
         include:[User]
-    }).then(projData=>{
-        const hbsData = projData.map(proj=>proj.get({plain:true}));
+    }).then(postData=>{
+        const hbsData = postData.map(post=>post.get({plain:true}));
         console.log(hbsData);
         res.render("home",{
             allPosts:hbsData,
@@ -18,8 +18,8 @@ router.get("/",(req,res)=>{
 router.get("/post/:id",(req,res)=>{
     Post.findByPk(req.params.id,{
         include:[User]
-    }).then(projData=>{
-        const hbsData = projData.get({plain:true});
+    }).then(postData=>{
+        const hbsData = postData.get({plain:true});
         hbsData.logged_id=req.session.logged_id
         console.log(hbsData);
         res.render("singlePost",hbsData)
@@ -40,7 +40,7 @@ router.get("/profile",(req,res)=>{
         return res.redirect("/login")
     } else {
         User.findByPk(req.session.user_id,{
-            include:[Project]
+            include:[Post]
         }).then(userData=>{
             const hbsData = userData.get({plain:true})
             console.log(hbsData)
@@ -49,6 +49,5 @@ router.get("/profile",(req,res)=>{
         })
     }
 })
-
 
 module.exports = router;
