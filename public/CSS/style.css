@@ -9,12 +9,19 @@
  :root {
     --primary: #b4e5d9;
     --accent: #060102;
-    --aceent2: rgb(11, 205, 212);
+    --accent2: #3A2B2F;
 }
 
+hr{
+    border: 1.25px solid var(--accent2);
+}
 
-
-
+.title{
+    text-align: center;
+    margin: 1rem;
+    font-family: sans-serif;
+    font-size: 1.75rem;
+}
 
  a{
      color:var(--primary);
@@ -24,13 +31,15 @@
  }
 
  .box{
+    font-family: sans-serif;
+    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px;
-    border-radius: 2px;
+    border-radius: 8px;
     background-color: var(--primary);
-    border: 2px solid rgb(212, 207, 207);
+    border: 2px solid var(--accent);
     width: 13rem;
     height: 26px;
     margin: 1rem 0 1rem 2rem;
@@ -43,13 +52,14 @@
  }
  
   main{
-     height: 55vh;
+    display: flex;
+    flex-direction: column;
+     height: 70vh;
   }
  
 body{
      color:#62d8b9;
-     background-color: var(--primary
-     );
+     background-color: var(--primary);
     
  }
  
@@ -57,10 +67,24 @@ body{
      min-height: 92px;
      color:#62d8b9;
      height: 20vh;
-     background-color: #3A2B2F;
+     background-color: var(--accent2);
+ }
+
+ .phead{
+    background-color: var(--accent2);
+    color: var(--primary);
  }
  
  footer{
-     height: 25vh;
-     background-color: #3A2B2F;
+     height: 10vh;
+     background-color: var(--accent2);
+ }
+
+ .container{
+
+    align-self: flex-start;
+    border-radius: 3px;
+    border: 2px solid var(--accent2);
+    margin: 10px 20px 0 20px;
+    
  }

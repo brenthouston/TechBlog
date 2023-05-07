@@ -1,6 +1,9 @@
-<h1>allPosts</h1>
+<h1 class="title">Posts</h1>
+<hr>
 {{#each allPosts}}
-    <h3>{{name}} by {{user.name}}</h3>
+<div class="container">
+    <h3 class="phead">{{name}} by {{user.name}}</h3>
     <p>{{description}}</p>
-    <hr>
+</div>
 {{/each}}
+
