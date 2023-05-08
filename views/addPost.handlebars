@@ -1,0 +1,16 @@
+<div class="headextend">
+    <div class="box">
+        <h1>The techBlog</h1>
+    </div>
+</div>
+<div id="newpost">
+    <h3>Add New Post</h3>
+    <form action="/api/post/{{userId}}" method="POST">
+        <label for="input">
+            <p>title of your post</p>
+        </label>
+        <input type="text" id="name" name="name" placeholder="name">
+        <textarea id="description" name="description" placeholder="description"></textarea>
+        <button type="submit">Post</button>
+    </form>
+</div>

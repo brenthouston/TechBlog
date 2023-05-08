@@ -3,19 +3,28 @@
         <h1>Dashboard</h1>
     </div>
 </div>
-<h3 class="title">Posts</h3>
-{{#each post}}
-    <h3>{{name}} </h3>
+<h3 class="title">{{name}}'s Posts</h3>
+{{#each posts}}
+<div class="container"> <h3 class="phead">{{name}} </h3>
     <p>{{description}}</p>
     <button class="del-btn" data-post-id="{{id}}">Delete me!</button>
-    <hr>
+</div>
+   
 {{/each}}
 
-<h3>Add a new Post</h3>
-<form action="">
-    <input type="text" id="name" placeholder="name">
-    <textarea id="description" placeholder="description"></textarea>
-    <button>Add a project</button>
+
+    <h3>Add a new Post</h3>
+    <form action="">
+        <label for="input">post title</label>
+        <input type="text" id="name" placeholder="name">
+        <textarea id="description" placeholder="description"></textarea>
+        <button>+</button>
+    </form>
+
+<form action="/addPost/{{userId}}">
+  <button id="addpost">+ Add Post</button>
 </form>
 
-<script src="/js/profile.js"></script>
+
+
+<script src="/profile.js"></script>

@@ -1,12 +1,11 @@
 
 document.querySelector("form").addEventListener("submit",e=>{
     e.preventDefault();
-    const projObj = {
+    const postObj = {
         name:document.querySelector("#name").value,
-        needed_funding:document.querySelector("#funding").value,
         description:document.querySelector("#description").value,
     }
-    fetch("/api/post",{
+     fetch("/api/posts",{
         method:"POST",
         body:JSON.stringify(postObj),
         headers:{
@@ -15,6 +14,7 @@ document.querySelector("form").addEventListener("submit",e=>{
     }).then(res=>{
         if(res.ok){
            location.reload()
+           
         } else {
             alert("trumpet sound")
         }
@@ -24,7 +24,7 @@ document.querySelector("form").addEventListener("submit",e=>{
 const allDelBtns = document.querySelectorAll(".del-btn");
 allDelBtns.forEach(button=>{
     button.addEventListener("click",()=>{
-        const idToDel = button.getAttribute("data-proj-id");
+        const idToDel = button.getAttribute("data-post-id");
         fetch(`/api/post/${idToDel}`,{
             method:"DELETE",
         }).then(res=>{

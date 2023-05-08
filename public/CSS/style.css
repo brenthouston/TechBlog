@@ -12,14 +12,21 @@
     --accent2: #35292c;
 }
 
-hr{
-    border: 1.25px solid var(--accent2);
+#wrapper{
+    position: relative;
+    min-height: 100vh;
+}
+
+textarea{
+    height: 5rem;
+    width: 8rem;
 }
 
 #logout{
     background-color: var(--accent2);
     color: var(--primary);
     border-style: none;
+    margin-left: 30px
 }
 
 .title{
@@ -33,7 +40,7 @@ hr{
  a{
     text-decoration: none;
      color:var(--primary);
-     margin: 15px;
+     margin: 10px;
      margin-left: 2rem;
     
  }
@@ -68,7 +75,8 @@ hr{
   main{
     display: flex;
     flex-direction: column;
-     height: 80vh;
+    margin-top: 100px;
+    margin-bottom: 50px;
   }
  
 body{
@@ -78,9 +86,15 @@ body{
  }
  
  header{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    color:#62d8b9;
+    margin: 0;
+    padding: 0;
     
-     color:#62d8b9;
-     height: 10vh;
+    
      background-color: var(--accent2);
  }
 
@@ -90,15 +104,23 @@ body{
  }
  
  footer{
-     height: 10vh;
+    position: absolute;
+    bottom:0;
+    left:0;
+    right:0;
      background-color: var(--accent2);
  }
 
  .container{
-
+    
     align-self: flex-start;
     border-radius: 3px;
     border: 2px solid var(--accent2);
     margin: 10px 20px 0 20px;
     
+ }
+ #newpost{
+    display: flex;
+    flex-direction: column;
+
  }

@@ -51,4 +51,9 @@ router.get("/profile",(req,res)=>{
     }
 })
 
+router.get('/addPost', (req, res) => {
+    res.render('addPost');
+  });
+  
+
 module.exports = router;
