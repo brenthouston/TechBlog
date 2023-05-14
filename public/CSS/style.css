@@ -59,12 +59,16 @@ textarea{
     height: 26px;
     margin-left: 2rem;
     margin-bottom: 2rem;
+    margin-top: 10px;
     
  }
 
  .headextend{
+    display: flex;
+    align-items: start;
     height: 3.5rem;
     background-color: var(--accent2);
+    margin-top: 17px;
  }
  
  h1,h2,h3,p{
@@ -75,8 +79,8 @@ textarea{
   main{
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
  
 body{

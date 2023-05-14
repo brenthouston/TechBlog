@@ -15,14 +15,23 @@ router.get("/",(req,res)=>{
     })
 })
 
-router.get("/post/:id",(req,res)=>{
-    Post.findByPk(req.params.id,{
-        include:[User]
-    }).then(postData=>{
-        const hbsData = postData.get({plain:true});
-        hbsData.logged_id=req.session.logged_id
-        console.log(hbsData);
-        res.render("singlePost",hbsData)
+// router.get("/post/:id",(req,res)=>{
+//     Post.findByPk(req.params.id,{
+//         include:[User]
+//     }).then(postData=>{
+//         const hbsData = postData.get({plain:true});
+//         hbsData.logged_id=req.session.logged_id
+//         console.log(hbsData);
+//         res.render("singlePost",hbsData)
+//     })
+// })
+
+router.get ('/signup',(req,res)=>{
+    if(req.session.logged_in){
+        return res.redirect('/profile')
+    }
+    res.render('signup',{
+        logged_in:req.session.logged_in,
     })
 })
 
@@ -50,10 +59,31 @@ router.get("/profile",(req,res)=>{
         })
     }
 })
-
-router.get('/addPost', (req, res) => {
-    res.render('addPost');
-  });
+router.post("/addPost", async (req, res) =>{
+    try{
+      if (!req.session.logged_in){
+        return res. status(403).json({msg: "Login required"})
+      } else {
+        const newPost = await Post.create({
+          ...req.body,
+          user_id: req.session.user_id,
+          name: req.body.name,
+          description: req.body.description
+        });
+        res.json({msg: "Successful Post!"})
+      };
+    }
+    catch(err){
+      console.log(err);
+      res.status(500).json({ msg: "Error Occurred"})
+    }
   
+  })
+  
+
+// router.get('/addPost', (req, res) => {
+//    res.render('addPost');
+//   });
+
 
 module.exports = router;

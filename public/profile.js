@@ -31,8 +31,30 @@ allDelBtns.forEach(button=>{
             if(res.ok){
                 location.reload()
             } else {
-                alert("trumpet sound")
+                alert("Error Occured")
             }
         })
+    })
+})
+
+document.querySelector("newpost").addEventListener("submit",e=>{
+    e.preventDefault();
+    const postObj = {
+        name:document.querySelector("#name").value,
+        description:document.querySelector("#description").value,
+    }
+     fetch("/api/posts",{
+        method:"POST",
+        body:JSON.stringify(postObj),
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }).then(res=>{
+        if(res.ok){
+           location.reload()
+           
+        } else {
+            alert("trumpet sound")
+        }
     })
 })
