@@ -5,9 +5,11 @@
 </div>
 <h1 class="title">Posts</h1>
 {{#each allPosts}}
-<div class="container">
+<div class="container" data-post-id="{{id}}">
     <h3 class="phead">{{name}} by {{user.name}}</h3>
     <p>{{description}}</p>
 </div>
 {{/each}}
+
+<script src="/home.js"></script>
 

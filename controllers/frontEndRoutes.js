@@ -15,16 +15,16 @@ router.get("/",(req,res)=>{
     })
 })
 
-// router.get("/post/:id",(req,res)=>{
-//     Post.findByPk(req.params.id,{
-//         include:[User]
-//     }).then(postData=>{
-//         const hbsData = postData.get({plain:true});
-//         hbsData.logged_id=req.session.logged_id
-//         console.log(hbsData);
-//         res.render("singlePost",hbsData)
-//     })
-// })
+router.get("/post/:id",(req,res)=>{
+    Post.findByPk(req.params.id,{
+        include:[User]
+    }).then(postData=>{
+        const hbsData = postData.get({plain:true});
+        hbsData.logged_id=req.session.logged_id
+         console.log(hbsData);
+        res.render("singlePost",hbsData)
+    })
+})
 
 router.get ('/signup',(req,res)=>{
     if(req.session.logged_in){

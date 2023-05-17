@@ -81,6 +81,7 @@ textarea{
     flex-direction: column;
     margin-top: 0px;
     margin-bottom: 0px;
+    height: 100%;
   }
  
 body{
@@ -107,13 +108,7 @@ body{
     color: var(--primary);
  }
  
- footer{
-    position: absolute;
-    bottom:0;
-    left:0;
-    right:0;
-     background-color: var(--accent2);
- }
+
 
  .container{
     

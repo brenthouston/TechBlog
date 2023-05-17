@@ -13,13 +13,13 @@
     <div id="wrapper">
     <header>    
     <a href="/">Home</a>
-    <a href="signup">Sign Up</a>
         {{#if logged_in}}
             <a id="dashlink" href="/profile">Dashboard</a>
             <button id="logout">Logout</button>
             <script src="/logout.js"></script>
         {{else}}
 
+            <a href="signup">Sign Up</a>
             <a href="login">Login</a>
         {{/if}} 
      </header>
@@ -27,7 +27,7 @@
        
     <main>{{{body}}}</main>
     
-    <footer>footer here</footer>
+    <footer></footer>
     </div>
 </body>
 </html>
