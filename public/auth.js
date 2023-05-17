@@ -18,7 +18,7 @@ loginForm.addEventListener("submit",e=>{
         }
     }).then(res=>{
         if(res.ok){
-           location.href = "/"
+           location.href = "/profile"
         } else {
             alert("Error Occured")
         }
