@@ -18,13 +18,20 @@ router.get("/",(req,res)=>{
 router.get("/post/:id",(req,res)=>{
     Post.findByPk(req.params.id,{
         include:[User]
-    }).then(postData=>{
-        const hbsData = postData.get({plain:true});
-        hbsData.logged_id=req.session.logged_id
-         console.log(hbsData);
-        res.render("singlePost",hbsData)
-    })
-})
+    }).then((postData) => {
+        if (postData) {
+          const hbsData = postData.get({ plain: true });
+          hbsData.logged_id = req.session.logged_id;
+          res.render("singlePost", hbsData);
+        } else {
+          res.status(404).send("Post not found");
+        }
+      })
+      .catch((error) => {
+        res.status(500).send("An error occurred");
+      });
+  });
+
 
 router.get ('/signup',(req,res)=>{
     if(req.session.logged_in){
@@ -80,10 +87,21 @@ router.post("/addPost", async (req, res) =>{
   
   })
   
-
-// router.get('/addPost', (req, res) => {
-//    res.render('addPost');
-//   });
+router.delete('/post/:id', (req,res) => {
+  Post.destroy({
+    where:{
+      id:req.params.id
+    }
+  }).then(delPost=>{
+    if(!delPost){
+      return res.status(404).json({msg:"No such Post with that Id in database!"})
+    }
+    res.json(delPost)
+  }).catch(err=>{
+    console.log(err);
+    res.status(500).json({msg:"error occured"})
+  })
+})
 
 
 module.exports = router;

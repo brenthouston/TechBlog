@@ -9,7 +9,7 @@
  :root {
     --primary: #ddedd8;
     --accent: #060102;
-    --accent2: #35292c;
+    --accent2: #221a1c;
 }
 
 #wrapper{
@@ -54,21 +54,34 @@ textarea{
     padding: 5px;
     border-radius: 8px;
     background-color: var(--primary);
-    border: 2px solid var(--accent);
     width: 13rem;
     height: 26px;
     margin-left: 2rem;
     margin-bottom: 2rem;
     margin-top: 10px;
-    
+    z-index: 2;
  }
 
+ .box2{
+    position: absolute;
+    height: 25px;
+    width: 208px;
+    z-index: 1;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgb(133, 135, 133);
+    border: 2px solid var(--accent);
+    margin-left: 36px;
+    margin-bottom: 2rem;
+    margin-top: 15px;
+    
+ }
  .headextend{
     display: flex;
     align-items: start;
-    height: 3.5rem;
+    height: 5rem;
     background-color: var(--accent2);
-    margin-top: 17px;
+    margin-top: 30px;
  }
  
  h1,h2,h3,p{
@@ -95,11 +108,9 @@ body{
     top:0;
     left:0;
     right:0;
-    color:#62d8b9;
     margin: 0;
     padding: 0;
-    
-    
+    height: 30px;
      background-color: var(--accent2);
  }
 
@@ -122,4 +133,45 @@ body{
     display: flex;
     flex-direction: column;
 
+ }
+
+ #comment label{
+    align-self: flex-start;
+    margin: 20px 0 5px 25px;
+    font-family: monospace;
+    font-size: 1rem;
+    color: var(--accent)
+ }
+
+ #comment{
+    border-radius: 3px;
+    border: 3px solid var(--accent2);
+    border-top: 50px solid var(--accent2);
+    margin: 10px 20px 0 20px;
+    
+ }
+
+textarea{
+    width: 1500px;
+    height: 100px;
+    margin: 0 0 15px 0;
+    border: 4px solid rgb(130, 188, 214);
+    border-radius: 2px;
+    
+ }
+ form button{
+    border-radius: 9px;
+    height: 2.5rem;
+    width: 1500px;
+    font-size: 1.25rem;
+    color: var(--primary);
+    background-color: rgb(80, 79, 79);
+    margin: 0 0 20px 0;
+ }
+ form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary);
  }

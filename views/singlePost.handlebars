@@ -1,7 +1,8 @@
 <div class="headextend">
     <div class="box">
-        <h1>Dashboard</h1>
+        <h1>The techBlog</h1>
     </div>
+    <div class="box2"></div>
 </div>
 
 
@@ -9,3 +10,14 @@
     <h3 class="phead">{{name}} by {{user.name}}</h3>
     <p>{{description}}</p>
 </div>
+
+<div id="comment" >
+    <form action="" method="POST">
+        <label for="textbox">Add Comment:</label>
+        <textarea id="myTextarea" name="myTextarea" rows="4" cols="50" placeholder="Enter your text..."></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script src="singlePost.js"></script>
