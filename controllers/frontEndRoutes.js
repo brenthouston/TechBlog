@@ -15,22 +15,6 @@ router.get("/",(req,res)=>{
     })
 })
 
-router.get("/post/:id",(req,res)=>{
-    Post.findByPk(req.params.id,{
-        include:[User]
-    }).then((postData) => {
-        if (postData) {
-          const hbsData = postData.get({ plain: true });
-          hbsData.logged_id = req.session.logged_id;
-          res.render("singlePost", hbsData);
-        } else {
-          res.status(404).send("Post not found");
-        }
-      })
-      .catch((error) => {
-        res.status(500).send("An error occurred");
-      });
-  });
 
 
 router.get ('/signup',(req,res)=>{
@@ -66,42 +50,44 @@ router.get("/profile",(req,res)=>{
         })
     }
 })
-router.post("/addPost", async (req, res) =>{
-    try{
-      if (!req.session.logged_in){
-        return res. status(403).json({msg: "Login required"})
-      } else {
-        const newPost = await Post.create({
-          ...req.body,
-          user_id: req.session.user_id,
-          name: req.body.name,
-          description: req.body.description
-        });
-        res.json({msg: "Successful Post!"})
-      };
-    }
-    catch(err){
-      console.log(err);
-      res.status(500).json({ msg: "Error Occurred"})
-    }
-  
-  })
-  
-router.delete('/post/:id', (req,res) => {
-  Post.destroy({
-    where:{
-      id:req.params.id
-    }
-  }).then(delPost=>{
-    if(!delPost){
-      return res.status(404).json({msg:"No such Post with that Id in database!"})
-    }
-    res.json(delPost)
-  }).catch(err=>{
-    console.log(err);
-    res.status(500).json({msg:"error occured"})
-  })
-})
 
+
+
+// router.post("/addPost", async (req, res) =>{
+//     try{
+//       if (!req.session.logged_in){
+//         return res. status(403).json({msg: "Login required"})
+//       } else {
+//         const newPost = await Post.create({
+//           ...req.body,
+//           user_id: req.session.user_id,
+//           name: req.body.name,
+//           description: req.body.description
+//         });
+//         res.json({msg: "Successful Post!"})
+//       };
+//     }
+//     catch(err){
+//       console.log(err);
+//       res.status(500).json({ msg: "Error Occurred"})
+//     }
+  
+//   })
+  
+// router.delete('/post/:id', (req,res) => {
+//   Post.destroy({
+//     where:{
+//       id:req.params.id
+//     }
+//   }).then(delPost=>{
+//     if(!delPost){
+//       return res.status(404).json({msg:"No such Post with that Id in database!"})
+//     }
+//     res.json(delPost)
+//   }).catch(err=>{
+//     console.log(err);
+//     res.status(500).json({msg:"error occured"})
+//   })
+// })
 
 module.exports = router;

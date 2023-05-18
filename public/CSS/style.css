@@ -137,7 +137,7 @@ body{
 
  #comment label{
     align-self: flex-start;
-    margin: 20px 0 5px 25px;
+    margin: 5px 0 5px 25px;
     font-family: monospace;
     font-size: 1rem;
     color: var(--accent)
@@ -152,17 +152,19 @@ body{
  }
 
 textarea{
-    width: 1500px;
+    width: 95%;
     height: 100px;
     margin: 0 0 15px 0;
     border: 4px solid rgb(130, 188, 214);
     border-radius: 2px;
+    font-size:1rem;
+   
     
  }
  form button{
     border-radius: 9px;
     height: 2.5rem;
-    width: 1500px;
+    width: 95%;
     font-size: 1.25rem;
     color: var(--primary);
     background-color: rgb(80, 79, 79);
@@ -174,4 +176,7 @@ textarea{
     flex-direction: column;
     align-items: center;
     background-color: var(--primary);
+ }
+ #name{
+   justify-self: start;
  }

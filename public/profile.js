@@ -26,7 +26,7 @@ allDelBtns.forEach(button=>{
     button.addEventListener("click",()=>{
         const idToDel = button.getAttribute("data-post-id");
         console.log(idToDel);
-        fetch(`/post/${idToDel}`,{
+        fetch(`api/posts/${idToDel}`,{
             method:"DELETE",
         }).then(res=>{
             if(res.ok){

@@ -5,6 +5,6 @@ postElement.forEach(post => {
   console.log('Post ID:', postId);
   
   post.addEventListener('click', () => {
-    location.href = `/post/${postId}`;
+    location.href = `api/posts/${postId}`;
   });
 });
