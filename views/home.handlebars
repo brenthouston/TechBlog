@@ -9,6 +9,13 @@
 <div class="container" data-post-id="{{id}}">
     <h3 class="phead">{{name}} by {{user.name}}</h3>
     <p>{{description}}</p>
+    {{#if comments.length}}
+      <h3>Comments:</h3>
+      <ul>
+        {{#each comments}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
 </div>
 {{/each}}
 

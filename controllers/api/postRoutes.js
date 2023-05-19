@@ -39,25 +39,25 @@ router.get("/:id",(req,res)=>{
     });
 });
 
-router.post('/post/:id/comment', async (req,res) =>{
+router.post('/:id/comment', async (req,res) =>{
 
   try{
     console.log(req.body);
     console.log(req.session);
-    if(!req.session.logged_in){
-      res.render('login');
-      return res.status(403).json({msg: "Login required"})
+    // if(!req.session.logged_in){
+    //   res.render('login');
+    //   return res.status(403).json({msg: "Login required"})
       
-    } else {
-      const newComment =await Comment.create({
+    // } else {
+      const newComment =await Comments.create({
         ...req.body,
-        // post_id: req.params.id,
+        post_id: req.params.id,
         user_id: req.session.user_id,
 
 
       });
       res.json({msg: "Successful Comment!"})
-    }
+    // }
   }
   catch(err){
     console.log(err);
@@ -82,4 +82,13 @@ router.delete('/:id', (req,res) => {
     res.status(500).json({msg:"error occured"})
   })
 })
+
+router.put('/:id', (req,res)=>{
+  Post.update(req.body,{
+    where:{
+      id: req.params.id,
+    }
+  })
+})
+
   module.exports= router

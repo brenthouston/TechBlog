@@ -15,11 +15,11 @@ signupForm.addEventListener("submit",e=>{
             "Content-Type":"application/json"
         }
     }).then(res=>{
+        console.log(res);
         if(res.ok){
            location.href = "/";
-           console.log(userObj);
         } else {
-            alert("Error Occured")
+            alert("Error Occured now")
         }
     })
 })

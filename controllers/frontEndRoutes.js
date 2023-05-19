@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const {Post,User} = require('../models');
+const {Post,User,Comments} = require('../models');
 
 router.get("/",(req,res)=>{
     Post.findAll({
-        include:[User]
+        include:[User, Comments]
     }).then(postData=>{
         const hbsData = postData.map(post=>post.get({plain:true}));
         console.log(hbsData);

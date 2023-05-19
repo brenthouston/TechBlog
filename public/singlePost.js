@@ -1,6 +1,6 @@
 
 
-const postEl = document.querySelector('.container')
+const postEl = document.querySelector('#post')
 
 
 document.querySelector('#comment').addEventListener('submit', e=>{
@@ -10,8 +10,9 @@ document.querySelector('#comment').addEventListener('submit', e=>{
     newComment.setAttribute('style','color:grey;')
     newComment.append(body)
     postEl.append(newComment)
-    console.log(body);
-    fetch(`/api/posts/${hbsData.id}`,{
+    const data= postEl.getAttribute("data-post-id")
+    console.log(data);
+    fetch(`/api/posts/${data}/comment`,{
         method:'POST',
         body:JSON.stringify({body}),
         headers:{
@@ -19,7 +20,7 @@ document.querySelector('#comment').addEventListener('submit', e=>{
         }
     }).then(res=>{
         if(res.ok){
-            location.reload()
+            // location.reload()
         }else{
             alert("An error occured")
         }
