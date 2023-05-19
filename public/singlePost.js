@@ -6,7 +6,7 @@ const postEl = document.querySelector('#post')
 document.querySelector('#comment').addEventListener('submit', e=>{
     e.preventDefault();
     const body = document.querySelector('#myTextarea').value
-    const newComment = document.createElement('p');
+    const newComment = document.createElement('li');
     newComment.setAttribute('style','color:grey;')
     newComment.append(body)
     postEl.append(newComment)

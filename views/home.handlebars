@@ -6,11 +6,23 @@
 </div>
 <h1 class="title">Posts</h1>
 {{#each allPosts}}
-<div class="container" data-post-id="{{id}}">
+  <div class="container" data-post-id="{{id}}">
     <h3 class="phead">{{name}} by {{user.name}}</h3>
     <p>{{description}}</p>
-</div>
+
+    {{#if comments.length}}
+      <h3>Comments:</h3>
+      <ul>
+        {{#each comments}}
+          <li>{{this.content}}</li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  </div>
 {{/each}}
+
+
+
 
 <script src="/home.js"></script>
 
