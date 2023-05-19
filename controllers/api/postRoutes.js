@@ -39,6 +39,8 @@ router.get("/:id",(req,res)=>{
     });
 });
 
+
+
 router.post('/:id/comment', async (req,res) =>{
 
   try{
@@ -50,10 +52,10 @@ router.post('/:id/comment', async (req,res) =>{
       
     // } else {
       const newComment =await Comments.create({
-        ...req.body,
+        description:req.body.body,
         post_id: req.params.id,
         user_id: req.session.user_id,
-
+        
 
       });
       res.json({msg: "Successful Comment!"})

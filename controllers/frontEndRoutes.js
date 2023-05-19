@@ -8,6 +8,7 @@ router.get("/",(req,res)=>{
     }).then(postData=>{
         const hbsData = postData.map(post=>post.get({plain:true}));
         console.log(hbsData);
+        console.log(hbsData[0].comments);
         res.render("home",{
             allPosts:hbsData,
             logged_in: req.session.logged_in,
